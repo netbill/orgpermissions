@@ -1,6 +1,8 @@
-package orgperm
+package orgpermissions
 
 import "github.com/google/uuid"
+
+var NumOfAllPermissions = 8
 
 var (
 	OrganizationUpdateID = uuid.MustParse("8a1f6a63-2a5d-4b35-9f64-2f2c3bce9e01")
@@ -17,11 +19,12 @@ var (
 
 const (
 	OrganizationUpdateCode = "organization.update"
-	RolesManageCode        = "roles.manage"
-	InvitesManageCode      = "invites.manage"
 
 	MembersDeleteCode = "members.delete"
 	MembersUpdateCode = "members.update"
+
+	RolesManageCode   = "roles.manage"
+	InvitesManageCode = "invites.manage"
 
 	PlacesCreateCode = "places.create"
 	PlacesDeleteCode = "places.delete"
@@ -36,16 +39,15 @@ type Permission struct {
 func GetAllPermissions() []Permission {
 	return []Permission{
 		{ID: OrganizationUpdateID, Code: OrganizationUpdateCode},
-		{ID: RolesManageID, Code: RolesManageCode},
-		{ID: InvitesManageID, Code: InvitesManageCode},
 
 		{ID: MembersDeleteID, Code: MembersDeleteCode},
 		{ID: MembersUpdateID, Code: MembersUpdateCode},
+
+		{ID: RolesManageID, Code: RolesManageCode},
+		{ID: InvitesManageID, Code: InvitesManageCode},
 
 		{ID: PlacesCreateID, Code: PlacesCreateCode},
 		{ID: PlacesDeleteID, Code: PlacesDeleteCode},
 		{ID: PlacesUpdateID, Code: PlacesUpdateCode},
 	}
 }
-
-var NumOfAllPermissions = len(GetAllPermissions())

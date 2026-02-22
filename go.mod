@@ -1,4 +1,4 @@
-module github.com/netbill/orgperm
+module github.com/netbill/orgpermissions
 
 go 1.22.2
 
